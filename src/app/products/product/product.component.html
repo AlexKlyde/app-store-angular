@@ -1,0 +1,12 @@
+<li class="product">
+  <h3>{{ product.title }}</h3>
+
+  <img class="img-fluid mb-2" [src]="product.image" [alt]="product.title">
+
+  <h4>Price: ${{ product.price }}</h4>
+
+  <div class="product__bottom mb-2">
+    <button class="btn btn-dark" (click)="onAddToCart(product)">Add to cart</button>
+    <a href="#" class="link-primary" [routerLink]="['/product', product.id]">Details</a>
+  </div>
+</li>

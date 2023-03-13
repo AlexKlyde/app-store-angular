@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-xl">
+    <a class="navbar-brand" routerLink="/" (click)="onSetType(null)">App Store</a>
+    <a class="navbar-brand" routerLink="/admin">Admin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav ms-md-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [class.active]="type === 'mac'"
+            (click)="onSetType('mac')"
+          >
+            Mac
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [class.active]="type === 'ipad'"
+            (click)="onSetType('ipad')"
+          >
+            iPad
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [class.active]="type === 'iphone'"
+            (click)="onSetType('iphone')"
+          >
+            iPhone
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/cart']"
+          >
+            <i class="fa badge fa-lg" [attr.value]="cartCount">&#xf07a;</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

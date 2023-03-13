@@ -1,0 +1,43 @@
+<form class="form" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+  <h1 class="h3 mb-3 fw-normal">Login as administrator</h1>
+  <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+    {{ error }}
+  </div>
+  <div class="form-floating mb-3">
+    <input 
+      type="email" 
+      [ngClass]="{
+        'is-valid': email.valid && email.touched, 
+        'is-invalid': email.invalid && email.touched
+      }" 
+      class="form-control"
+      id="email"
+      formControlName="email"
+    >
+    <label for="email">Email address</label>
+    <p *ngIf="email.invalid && email.touched" class="validation">
+      <small *ngIf="email.errors?.['required']">Email is required</small>
+      <small *ngIf="email.errors?.['email']">Please provide a valid email</small>
+    </p>
+  </div>
+  <div class="form-floating mb-3">
+    <input 
+      type="password" 
+      class="form-control"
+      [ngClass]="{
+        'is-valid': password.valid && password.touched, 
+        'is-invalid': password.invalid && password.touched
+      }" 
+      id="password" 
+      formControlName="password">
+    <label for="password">Password</label>
+    <p *ngIf="password.invalid && password.touched" class="validation">
+      <small *ngIf="password.errors?.['required']">Password is required</small>
+      <small *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long</small>
+    </p>
+  </div>
+  <button class="w-100 btn btn-lg btn-dark" type="submit" [disabled]="loginForm.invalid || submitted">
+    Log in
+  </button>
+</form>
+

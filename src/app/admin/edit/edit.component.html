@@ -1,0 +1,67 @@
+<form *ngIf="editForm; else loading" class="form row g-3" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <h2>Edit Product</h2>
+  <div class="form-floating mb-2 p-0">
+    <input 
+      type="text"
+      class="form-control"
+      [class.is-invalid]="title.invalid && title.touched"
+      id="title"
+      formControlName="title"
+    >
+    <label for="title">Title</label>
+  </div>
+  <div class="form-floating mb-2 p-0 col-8">
+    <select 
+      class="form-select"
+      [class.is-invalid]="type.invalid && type.touched"
+      id="productType" 
+      formControlName="type"
+    >
+      <option value="mac" >Mac</option>
+      <option value="ipad">iPad</option>
+      <option value="iphone">iPhone</option>
+    </select>
+    <label for="productType">Product type</label>
+  </div>
+  <div class="form-floating mb-2 ps-1 col-4 p-0">
+    <input
+      type="number"
+      class="form-control"
+      [class.is-invalid]="price.invalid && price.touched"
+      id="price"
+      formControlName="price"
+    >
+    <label for="price">Price</label>
+  </div>
+  <div class="form-floating mb-2 p-0">
+    <input 
+      type="text"
+      class="form-control"
+      [class.is-invalid]="title.invalid && title.touched"
+      id="image"
+      formControlName="image"
+    >
+    <label for="title">Image Url</label>
+  </div>
+  <div class="form-floating mb-2 p-0">
+    <textarea 
+      class="form-control"
+      [class.is-invalid]="info.invalid && info.touched"
+      id="info"
+      style="height: 100px"
+      formControlName="info"
+    ></textarea>
+    <label class="ml-1" for="info">Description</label>
+  </div>
+  <button 
+    class="w-100 btn btn-lg btn-dark"
+    type="submit"
+    [disabled]="editForm.invalid || submitted"
+  >
+    Update
+  </button>
+</form>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

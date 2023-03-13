@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: calc(33% - 1.8rem);
+  margin: 1rem;
+
+  @media (max-width: 1199px) {
+    flex-basis: calc(50% - 2rem);
+  }
+
+  @media (max-width: 767px) {
+    flex-basis: 100%;
+  }
+}
+
+.product {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+
+  img {
+    max-height: 200px;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      width: 80%
+    }
+  }
+}

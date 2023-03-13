@@ -1,0 +1,22 @@
+<div 
+  class="product-details"
+  *ngIf="product$ | async as product; else loading"
+>
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#" routerLink="/products">Back</a></li>
+  </ul>
+  <div class="product-details__info">
+    <h2 class="display-3">{{ product.title }}</h2>
+    <img [src]="product.image" [alt]="product.title">
+    <div class="product-details__info-right">
+      <p class="product-details__description">{{product.info}}</p>
+      <h3>Price: {{ product.price }}$</h3>
+      <button class="btn btn-dark" (click)="onAddToCart(product)">Add to cart</button>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

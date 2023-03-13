@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body,
+html {
+  height: 100%
+}
+
+.container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+form.form {
+  max-width: 900px;
+  margin: 0 auto;
+  .btn {
+    color: #fff;
+
+    &:disabled {
+      color: #fff;
+    }
+  }
+}
+
+div.form-floating {
+  margin-bottom: .8rem;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  &.invalid {
+
+    input {
+      border-color: var(--bs-danger);
+    }
+  }
+
+  .validation {
+    color: var(--bs-danger);
+  }
+}
+
+.badge {
+  padding: 0 !important;
+
+  &:after {
+    content: attr(value);
+    font-size: 12px;
+    color: #fff;
+    background: red;
+    border-radius: 50%;
+    padding: 0 5px;
+    position: relative;
+    left: -8px;
+    top: -10px;
+    opacity: 0.9;
+  }
+}
+
+.fa:not(.badge) {
+  font-size: 1.5em !important;
+  &:hover {
+    color: red;
+  }
+}
+
+.btn.btn-icon {
+  padding: 0
+}
+
+table {
+  td, th { 
+    text-align: center;
+  }
+
+  tfoot {
+    td {
+      border: 0;
+    }
+  }
+}
