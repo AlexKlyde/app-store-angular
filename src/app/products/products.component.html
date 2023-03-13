@@ -1,11 +1,1 @@
-<ul class="products" *ngIf="products$ | async as products; else loading">
-  <app-product 
-    *ngFor="let product of products | filter: productService.type" 
-    [product]="product"
-  >
-  </app-product>
-</ul>
-
-<ng-template #loading>
-  <app-spinner></app-spinner>
-</ng-template>
+<router-outlet></router-outlet>

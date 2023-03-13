@@ -7,6 +7,10 @@
 
   <div class="product__bottom mb-2">
     <button class="btn btn-dark" (click)="onAddToCart(product)">Add to cart</button>
-    <a href="#" class="link-primary" [routerLink]="['/product', product.id]">Details</a>
+    <a href="#" class="link-primary"
+      [routerLink]="['product', product.id]"
+    >
+      Details
+    </a>
   </div>
 </li>

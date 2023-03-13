@@ -39,6 +39,10 @@ export class ProductService {
   getProduct(id: string) {
     return this.http.get<Product>(`${environment.dbUrl}/products/${id}.json`)
       .pipe(map(res => {
+        if (!res) {
+          return null;
+        }
+
         return {
             ...res,
             id,

@@ -3,8 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
 import { CartComponent } from './cart/cart.component';
-import { ProductDetailsComponent } from './products/product-details/product-details.component';
-import { ProductsComponent } from './products/products.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
@@ -22,11 +20,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
-      },
-      {
-        path: 'product/:id',
-        component: ProductDetailsComponent,
+        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule),
       },
       {
         path: 'cart',
